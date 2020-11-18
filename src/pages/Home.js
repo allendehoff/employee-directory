@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import API from "../utils/API";
+import Table from "../components/Table"
 
 function Search() {
     const [users, setUsers] = useState([])
@@ -14,13 +15,13 @@ function Search() {
                     throw new Error(res.data.message);
                 }
                 // console.log(res.data.results)
-                setUsers({ users: res.data.results })
+                setUsers(res.data.results )
             })
         }, []);
-        (console.log(users))
+        // (console.log(users))
     return(
         <div>
-
+            <Table users={users}/>
         </div>
     )
 }
