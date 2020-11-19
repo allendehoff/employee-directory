@@ -1,0 +1,12 @@
+.tableHeader {
+    border-top: 2px solid gray;
+    /* max-width: 90%; */
+    /* align-content: space-between; */
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    padding: 0.5rem 1rem;
+}
+.headerItem {
+font-weight: bolder;
+}

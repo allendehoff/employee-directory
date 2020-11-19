@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
 import API from "../utils/API";
-import Table from "../components/Table"
+import UserTable from "../components/Table/Table"
+import Container from "../components/Container/Container";
+import Header from "../components/Header/Header"
+import SearchBar from "../components/SearchBar/SearchBar"
+import TableHeader from "../components/TableHeader/TableHeader"
 
 function Search() {
     const [users, setUsers] = useState([])
@@ -15,13 +19,18 @@ function Search() {
                     throw new Error(res.data.message);
                 }
                 // console.log(res.data.results)
-                setUsers(res.data.results )
+                setUsers(res.data.results)
             })
-        }, []);
-        // (console.log(users))
-    return(
+    }, []);
+    // (console.log(users))
+    return (
         <div>
-            <Table users={users}/>
+            <Container>
+                <Header/>
+                <SearchBar/>
+                {/* <TableHeader/> */}
+                <UserTable users={users} />
+            </Container>
         </div>
     )
 }

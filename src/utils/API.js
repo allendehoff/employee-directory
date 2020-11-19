@@ -3,7 +3,7 @@ import axios from "axios";
 export default {
     loadUsers: function () {
         return axios.get(
-            'https://randomuser.me/api/?results=200'
+            'https://randomuser.me/api/?results=200&nat=US'
         )
         // $.ajax({
         //     url: 'https://randomuser.me/api/?results=200',

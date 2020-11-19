@@ -1,0 +1,7 @@
+.header {
+    color: white;
+    background-color: darkblue;
+    border-bottom: 10px solid darkred;
+    padding: 2rem;
+    text-align: center;
+}

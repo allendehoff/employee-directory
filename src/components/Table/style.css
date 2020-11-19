@@ -1,0 +1,13 @@
+.table {
+    /* display: flex; */
+    text-align: center;
+    /* display: flex; */
+    /* align-items: stretch;
+    padding: 0.5rem 1rem; */
+}
+.tableItem {
+    align-items: center;
+    /* justify-content: space-between; */
+    /* display: flex; */
+
+}
