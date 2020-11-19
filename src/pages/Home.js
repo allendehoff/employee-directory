@@ -8,8 +8,10 @@ import TableHeader from "../components/TableHeader/TableHeader"
 
 function Search() {
     const [users, setUsers] = useState([])
+    const [search, setSearch] = useState()
 
     useEffect(() => {
+        // if (!search){
         API.loadUsers()
             .then(res => {
                 if (res.data.length === 0) {
@@ -21,15 +23,30 @@ function Search() {
                 // console.log(res.data.results)
                 setUsers(res.data.results)
             })
+        // }
+        
     }, []);
+
+    function filterResults(query) {
+        const searchResults = users.filter(o =>
+            Object.keys(o).some(k => o[k].toString().toLowerCase().includes(query.toLowerCase())))
+        setSearch(searchResults)
+    }
+
+    const handleInputChange = event => {
+        // console.log(event.target.value)
+        filterResults(event.target.value)
+    };
+
+
     // (console.log(users))
     return (
         <div>
             <Container>
                 <Header/>
-                <SearchBar/>
+                <SearchBar handleInputChange={handleInputChange}/>
                 {/* <TableHeader/> */}
-                <UserTable users={users} />
+                <UserTable users={users} search={search} />
             </Container>
         </div>
     )
